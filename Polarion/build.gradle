@@ -1,0 +1,24 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.9'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.hcl.nexalm.polarion'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation files('libs/axis.jar', 'libs/axis-patch.jar','libs/jaxrpc.jar','libs/mail.jar','libs/saaj.jar','libs/wsclient.jar', 'libs/wsdl4j-1.5.1.jar','libs/commons-logging-1.0.4.jar','libs/commons-httpclient-3.1.patched.jar','libs/commons-discovery-0.2.jar','libs/commons-codec-1.4.jar','libs/wsclient-src.zip')
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
